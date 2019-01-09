@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        table, tr, td, th {
+            border: 1px solid gray;
+            border-collapse: collapse;
+        }
+    </style>
+    <script src="js/metadata.js"></script>
+    <script src="js/dummyData.js"></script>
+    <script src="js/superTable.js"></script>
+</head>
+<body>
+    <div id="mainContent"></div>
+    <script>
+        var superTable = new SuperTable(metadata.showPeoplePage, dummyData.people);
+        document.getElementById('mainContent').innerHTML = superTable.getHtml();
+    </script>
+</body>
+</html>
