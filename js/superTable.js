@@ -4,7 +4,7 @@
         this.data = data;
         this.formatters = {
             date: d => d ? d.toLocaleDateString('nb-no') : '',
-            string: s => s
+            string: s => s !== undefined ? s : ''
         };
     }
 
@@ -22,7 +22,7 @@
             for (let column of this.metadata.columns) {
                 const formatter = this.formatters[column.dataType || 'string'];
                 const value = row[column.dataPropertyName];
-                html += `<td>${formatter ? formatter(value) : value}</td>`;
+                html += `<td>${formatter(value)}</td>`;
             }
             for (let operation of this.metadata.operations) {
                 let onclick = operation.goToPage

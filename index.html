@@ -13,12 +13,34 @@
     <script src="js/metadata.js"></script>
     <script src="js/dummyData.js"></script>
     <script src="js/superTable.js"></script>
+    <script src="js/superForm.js"></script>
 </head>
 <body>
-    <div id="mainContent"></div>
-    <script>
-        var superTable = new SuperTable(metadata.showPeoplePage, dummyData.people);
-        document.getElementById('mainContent').innerHTML = superTable.getHtml();
-    </script>
+    <div id="content"></div>
+<script>
+    var classFromTemplate = {
+        table: SuperTable,
+        form: SuperForm
+    }
+
+    showPage('editAndDetailsPersonPage', 1);
+    function showPage(pageName, params) {
+        const myMetadata = metadata[pageName];
+        const template = classFromTemplate[myMetadata.template];
+        const htmlGenerator = new template(myMetadata, dummyData[myMetadata.dataPath], params);
+        document.getElementById('content').innerHTML = htmlGenerator.getHtml();
+    }
+
+    function formatDate(d) {
+        let month = String(d.getMonth() + 1);
+        let day = String(d.getDate());
+        const year = String(d.getFullYear());
+
+        if (month.length < 2) month = '0' + month;
+        if (day.length < 2) day = '0' + day;
+
+        return `${year}-${month}-${day}`;
+    }
+</script>
 </body>
 </html>
