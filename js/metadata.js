@@ -9,7 +9,7 @@ var metadata = {
             { text: 'Email', dataPropertyName: 'email' },
             { text: 'Sist aktiv', dataPropertyName: 'lastActiveDate', dataType: 'date' },
         ],
-    } ,
+    },
     showPeoplePage: {
         template: 'table',
         dataPath: 'people',
@@ -25,7 +25,7 @@ var metadata = {
             { text: 'detaljer', goToPage: 'editAndDetailsPersonPage', params: { edit: false } },
             { text: 'slett', doAction: 'deletePersonAction' },
         ]
-    } ,
+    },
     //showChessResultsPage: {
     //    template: 'table',
     //    text: 'Sjakkresultater',

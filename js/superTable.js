@@ -25,9 +25,12 @@
                 html += `<td>${formatter(value)}</td>`;
             }
             for (let operation of this.metadata.operations) {
+                const params = JSON.parse(JSON.stringify(operation.params || {}));
+                params.id = row.id;
+                const paramsText = JSON.stringify(params).replace(/"/g,'');
                 let onclick = operation.goToPage
-                    ? `goToPage('${operation.goToPage}', ${row.id})`
-                    : `doAction('${operation.doAction}', ${row.id})`;
+                    ? `goToPage('${operation.goToPage}', ${paramsText})`
+                    : `doAction('${operation.doAction}', ${paramsText})`;
 
                 html += `<td><button onclick="${onclick}">${operation.text}</button></td>`;
             }

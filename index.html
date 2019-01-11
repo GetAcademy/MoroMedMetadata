@@ -16,31 +16,21 @@
     <script src="js/superForm.js"></script>
 </head>
 <body>
+    <div>Meny: <a href="javascript:goToPage('showPeoplePage')">Alle personer</a></div>
     <div id="content"></div>
-<script>
-    var classFromTemplate = {
-        table: SuperTable,
-        form: SuperForm
-    }
-
-    showPage('editAndDetailsPersonPage', 1);
-    function showPage(pageName, params) {
-        const myMetadata = metadata[pageName];
-        const template = classFromTemplate[myMetadata.template];
-        const htmlGenerator = new template(myMetadata, dummyData[myMetadata.dataPath], params);
-        document.getElementById('content').innerHTML = htmlGenerator.getHtml();
-    }
-
-    function formatDate(d) {
-        let month = String(d.getMonth() + 1);
-        let day = String(d.getDate());
-        const year = String(d.getFullYear());
-
-        if (month.length < 2) month = '0' + month;
-        if (day.length < 2) day = '0' + day;
-
-        return `${year}-${month}-${day}`;
-    }
-</script>
+    <script>
+        var classFromTemplate = {
+            table: SuperTable,
+            form: SuperForm
+        }
+        goToPage('showPeoplePage');
+        //goToPage('editAndDetailsPersonPage', { id: 1, edit: true });
+        function goToPage(pageName, params) {
+            const myMetadata = metadata[pageName];
+            const template = classFromTemplate[myMetadata.template];
+            const htmlGenerator = new template(myMetadata, dummyData[myMetadata.dataPath], params);
+            document.getElementById('content').innerHTML = htmlGenerator.getHtml();
+        }
+    </script>
 </body>
 </html>
