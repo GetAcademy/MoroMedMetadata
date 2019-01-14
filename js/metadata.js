@@ -1,43 +1,71 @@
-var metadata = {
-    editAndDetailsPersonPage: {
-        template: 'form',
-        dataPath: 'people',
-        text: 'Rediger person',
-        columns: [
-            { text: 'Fornavn', dataPropertyName: 'firstName' },
-            { text: 'Etternavn', dataPropertyName: 'lastName' },
-            { text: 'Email', dataPropertyName: 'email' },
-            { text: 'Sist aktiv', dataPropertyName: 'lastActiveDate', dataType: 'date' },
-        ],
+﻿var metadata = {
+    pages: {
+        selectProject: {
+            components: ['showProjects']
+        },
+        showProject: {
+            components: ['showProject', 'showTimeTracking']
+        }
     },
-    showPeoplePage: {
-        template: 'table',
-        dataPath: 'people',
-        text: 'Personer',
-        columns: [
-            { text: 'Fornavn', dataPropertyName: 'firstName' },
-            { text: 'Etternavn', dataPropertyName: 'lastName' },
-            { text: 'Email', dataPropertyName: 'email' },
-            { text: 'Sist aktiv', dataPropertyName: 'lastActiveDate', dataType: 'date' },
-        ],
-        operations: [
-            { text: 'rediger', goToPage: 'editAndDetailsPersonPage', params: { edit: true } },
-            { text: 'detaljer', goToPage: 'editAndDetailsPersonPage', params: { edit: false } },
-            { text: 'slett', doAction: 'deletePersonAction' },
-        ]
+    components: {
+        editAndDetailsPerson: {
+            template: 'form',
+            dataPath: 'people',
+            text: 'Rediger person',
+            columns: [
+                { text: 'Fornavn', dataPropertyName: 'firstName' },
+                { text: 'Etternavn', dataPropertyName: 'lastName' },
+                { text: 'Email', dataPropertyName: 'email' },
+                { text: 'Sist aktiv', dataPropertyName: 'lastActiveDate', dataType: 'date' },
+            ],
+        },
+        showProject: {
+            template: 'form',
+            dataPath: 'projects',
+            text: 'Prosjekt',
+            columns: [
+                { text: 'Navn', dataPropertyName: 'name' },
+                { text: 'Startet dato', dataPropertyName: 'date' },
+            ],
+        },
+        showPeople: {
+            template: 'table',
+            dataPath: 'people',
+            text: 'Personer',
+            columns: [
+                { text: 'Fornavn', dataPropertyName: 'firstName' },
+                { text: 'Etternavn', dataPropertyName: 'lastName' },
+                { text: 'Email', dataPropertyName: 'email' },
+                { text: 'Sist aktiv', dataPropertyName: 'lastActiveDate', dataType: 'date' },
+            ],
+            operations: [
+                { text: 'rediger', goToPage: 'editAndDetailsPersonPage', params: { edit: true } },
+                { text: 'detaljer', goToPage: 'editAndDetailsPersonPage', params: { edit: false } },
+                { text: 'slett', doAction: 'deletePersonAction' },
+            ]
+        },
+        showTimeTracking: {
+            template: 'table',
+            dataPath: 'timeTracking',
+            text: 'Ført tid',
+            columns: [
+                // person: 1, project: 1, day: '2019-01-01', hours: 5.5
+                { text: 'Person', dataPropertyName: 'person' },
+                { text: 'Dato', dataPropertyName: 'date', dataType: 'date' },
+                { text: 'Timer', dataPropertyName: 'hours' },
+            ],
+            operations: []
+        },
+        showProjects: {
+            template: 'table',
+            dataPath: 'projects',
+            text: 'Prosjekter',
+            columns: [
+                { text: 'Navn', dataPropertyName: 'name' },
+            ],
+            operations: [
+                { text: 'detaljer', goToPage: 'showProject' },
+            ]
+        }
     },
-    //showChessResultsPage: {
-    //    template: 'table',
-    //    text: 'Sjakkresultater',
-    //    columns: [
-    //        { text: 'Spiller 1', dataPropertyName: 'player1name' },
-    //        { text: 'Spiller 2 ', dataPropertyName: 'player2name' },
-    //        { text: 'Poeng spiller 1', dataPropertyName: 'player1points' },
-    //        { text: 'Poeng spiller 2', dataPropertyName: 'player2points' },
-    //    ],
-    //    operations: [
-    //        { text: 'Legg til poeng spiller 1', doAction: 'addPointsPersonAction', params: { player: 1} },
-    //        { text: 'Legg til poeng spiller 2', doAction: 'addPointsPersonAction', params: { player: 2  } },
-    //    ]
-    //} 
 };

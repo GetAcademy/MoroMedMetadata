@@ -7,11 +7,11 @@ class SuperForm {
         console.log(this.data);
         this.showFormatters = {
             date: d => d ? d.toLocaleDateString('nb-no')  : '',
-            string: s => s
+            string: s => s !== undefined ? s : ''
         };
         this.editFormatters = {
             date: d => d ? d.toISOString().substr(0, 10) : '',
-            string: s => s
+            string: s => s !== undefined ? s : ''
         };
         this.types = {
             string: 'text',

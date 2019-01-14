@@ -16,20 +16,25 @@
     <script src="js/superForm.js"></script>
 </head>
 <body>
-    <div>Meny: <a href="javascript:goToPage('showPeoplePage')">Alle personer</a></div>
+    <div>Meny: <a href="javascript:goToPage('selectProject')">Alle prosjekter</a></div>
     <div id="content"></div>
     <script>
         var classFromTemplate = {
             table: SuperTable,
             form: SuperForm
         }
-        goToPage('showPeoplePage');
+        goToPage('selectProject');
         //goToPage('editAndDetailsPersonPage', { id: 1, edit: true });
         function goToPage(pageName, params) {
-            const myMetadata = metadata[pageName];
-            const template = classFromTemplate[myMetadata.template];
-            const htmlGenerator = new template(myMetadata, dummyData[myMetadata.dataPath], params);
-            document.getElementById('content').innerHTML = htmlGenerator.getHtml();
+            const components = metadata.pages[pageName].components;
+            let html = '';
+            for (let componentName of components) {
+                const myMetadata = metadata.components[componentName];
+                const template = classFromTemplate[myMetadata.template];                
+                const htmlGenerator = new template(myMetadata, dummyData[myMetadata.dataPath], params);
+                html += `<div>${htmlGenerator.getHtml()}</div>`;
+            }
+            document.getElementById('content').innerHTML = html;
         }
     </script>
 </body>

@@ -1,14 +1,19 @@
 ﻿var dummyData = {
     people: [
-        { id: 1, firstName: 'Terje', lastName: 'Kolderup', email: 'terje@getacademy.no', lastActiveDate: new Date() },
-        { id: 2, firstName: 'Åsmund', email: 'asmund@getacademy.no' },
-        { id: 3, firstName: 'Trym', email: 'trym@getacademy.no' },
-        { id: 4, firstName: 'Thea', email: 'thea@getacademy.no' },
+        { id: 1, firstName: 'Terje', lastName: 'Kolderup', email: 'terje@getacademy.no', lastActiveDate: '2019-01-01' },
+        { id: 2, firstName: 'Per', email: 'per@getacademy.no' },
+        { id: 3, firstName: 'Pål', email: 'paal@getacademy.no' },
+        { id: 4, firstName: 'Espen', email: 'espen@getacademy.no' },
     ],
-    chessResults: [
-        { player1name: 'Terje', player1points: 1, player2name: 'Edgar', player2points: 0  },
-        { player1name: 'Terje', player1points: 1, player2name: 'Per', player2points: 0  },
-        { player1name: 'Terje', player1points: 1, player2name: 'Pål', player2points: 0  },
-        { player1name: 'Terje', player1points: 1, player2name: 'Espen', player2points: 0  },
+    projects: [
+        { id: 1, name: 'Ship Online'},
+        { id: 2, name: 'Comtech'},
+        { id: 3, name: 'Renewgen'},
+    ],
+    timeTracking: [
+        { person: 1, project: 1, date: '2019-01-01', hours: 5.5},
+        { person: 1, project: 2, date: '2019-01-01', hours: 2},
+        { person: 2, project: 2, date: '2019-01-01', hours: 4},
+        { person: 3, project: 2, date: '2019-01-01', hours: 7},
     ]
 };
