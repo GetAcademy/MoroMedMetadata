@@ -25,7 +25,7 @@
             text: 'Prosjekt',
             columns: [
                 { text: 'Navn', dataPropertyName: 'name' },
-                { text: 'Startet dato', dataPropertyName: 'date' },
+                { text: 'Startet dato', dataPropertyName: 'startedDate' },
             ],
         },
         showPeople: {

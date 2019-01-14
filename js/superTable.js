@@ -3,7 +3,7 @@
         this.metadata = metadata;
         this.data = data;
         this.formatters = {
-            date: d => d !== undefined ? d.toLocaleDateString('nb-no') : '',
+            date: d => d !== undefined ? new Date(d).toLocaleDateString('nb-no') : '',
             string: s => s !== undefined ? s : ''
         };
     }

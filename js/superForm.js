@@ -4,7 +4,6 @@ class SuperForm {
         this.isEditable = params.edit;
         this.metadata = metadata;
         this.data = data.filter(row => row.id === this.id)[0];
-        console.log(this.data);
         this.showFormatters = {
             date: d => d ? d.toLocaleDateString('nb-no')  : '',
             string: s => s !== undefined ? s : ''
@@ -16,7 +15,7 @@ class SuperForm {
         this.types = {
             string: 'text',
             date: 'date'
-        }
+        };
     }
 
     getHtml() {

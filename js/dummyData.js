@@ -6,7 +6,7 @@
         { id: 4, firstName: 'Espen', email: 'espen@getacademy.no' },
     ],
     projects: [
-        { id: 1, name: 'Ship Online'},
+        { id: 1, name: 'Ship Online', startedDate: '2018-11-11'},
         { id: 2, name: 'Comtech'},
         { id: 3, name: 'Renewgen'},
     ],
