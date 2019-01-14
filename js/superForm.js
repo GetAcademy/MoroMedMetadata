@@ -5,7 +5,7 @@ class SuperForm {
         this.metadata = metadata;
         this.data = data.filter(row => row.id === this.id)[0];
         this.showFormatters = {
-            date: d => d ? d.toLocaleDateString('nb-no')  : '',
+            date: d => d ? new Date(d).toLocaleDateString('nb-no')  : '',
             string: s => s !== undefined ? s : ''
         };
         this.editFormatters = {

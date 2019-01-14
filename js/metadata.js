@@ -1,11 +1,14 @@
 ﻿var metadata = {
     pages: {
-        selectProject: {
-            components: ['showProjects']
+        start: {
+            components: ['showProjects', 'showPeople']
         },
         showProject: {
             components: ['showProject', 'showTimeTracking']
-        }
+        },
+        editAndDetailsPerson: {
+            components: ['editAndDetailsPerson', 'showTimeTracking']
+        },
     },
     components: {
         editAndDetailsPerson: {
@@ -39,8 +42,8 @@
                 { text: 'Sist aktiv', dataPropertyName: 'lastActiveDate', dataType: 'date' },
             ],
             operations: [
-                { text: 'rediger', goToPage: 'editAndDetailsPersonPage', params: { edit: true } },
-                { text: 'detaljer', goToPage: 'editAndDetailsPersonPage', params: { edit: false } },
+                { text: 'rediger', goToPage: 'editAndDetailsPerson', params: { edit: true } },
+                { text: 'detaljer', goToPage: 'editAndDetailsPerson', params: { edit: false } },
                 { text: 'slett', doAction: 'deletePersonAction' },
             ]
         },

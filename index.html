@@ -16,14 +16,14 @@
     <script src="js/superForm.js"></script>
 </head>
 <body>
-    <div>Meny: <a href="javascript:goToPage('selectProject')">Alle prosjekter</a></div>
+    <div>Meny: <a href="javascript:goToPage('start')">Start</a></div>
     <div id="content"></div>
     <script>
         var classFromTemplate = {
             table: SuperTable,
             form: SuperForm
         }
-        goToPage('selectProject');
+        goToPage('start');
         //goToPage('editAndDetailsPersonPage', { id: 1, edit: true });
         function goToPage(pageName, params) {
             const components = metadata.pages[pageName].components;
