@@ -3,9 +3,11 @@ class SuperForm {
         this.id = params.id;
         this.isEditable = params.edit;
         this.metadata = metadata;
-        this.data = data.filter(row => row.id === this.id)[0];
+        this.data = Array.isArray(data)
+            ? data.filter(row => row.id === this.id)[0]
+            : data;
         this.showFormatters = {
-            date: d => d ? new Date(d).toLocaleDateString('nb-no')  : '',
+            date: d => d ? new Date(d).toLocaleDateString('nb-no') : '',
             string: s => s !== undefined ? s : ''
         };
         this.editFormatters = {

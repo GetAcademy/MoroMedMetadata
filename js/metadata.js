@@ -4,13 +4,22 @@
             components: ['showProjects', 'showPeople']
         },
         showProject: {
-            components: ['showProject', 'showTimeTracking']
+            components: ['showProject', 'selectFromAndToDate', 'showTimeTracking']
         },
         editAndDetailsPerson: {
             components: ['editAndDetailsPerson', 'showTimeTracking']
         },
     },
     components: {
+        selectFromAndToDate: {
+            template: 'form',
+            dataPath: 'dateFilter',
+            text: 'Velg periode',
+            columns: [
+                { text: 'Fra dato', dataPropertyName: 'fromDate', dataType: 'date' },
+                { text: 'Til dato', dataPropertyName: 'toDate', dataType: 'date' },
+            ]
+        },
         editAndDetailsPerson: {
             template: 'form',
             dataPath: 'people',
